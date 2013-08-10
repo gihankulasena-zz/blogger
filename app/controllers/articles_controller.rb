@@ -27,13 +27,13 @@ def create
 end
 
 def article_params
-  params.require(:article).permit(:title, :body)
-end
+    params.require(:article).permit(:title, :body, :tag_list)
+  end
 
 def destroy
     @article = Article.find(params[:id]).destroy
     #flash[:success] = "User destroyed."
-    redirect_to root_path
+    redirect_to articles_path
 end
 
 def edit
